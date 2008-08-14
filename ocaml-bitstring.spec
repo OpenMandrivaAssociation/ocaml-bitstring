@@ -12,6 +12,7 @@ URL:		http://code.google.com/p/bitstring
 Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz	
 Patch:      %{name}-1.9.7-install-flags.patch
 BuildRequires:	ocaml
+BuildRequires:	camlp4
 BuildRequires:  findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
