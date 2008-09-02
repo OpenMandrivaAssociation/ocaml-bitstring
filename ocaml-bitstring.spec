@@ -1,5 +1,5 @@
 %define name	ocaml-bitstring
-%define version	1.9.7
+%define version	1.9.8
 %define release	%mkrel 1
 
 Name:		%{name}
@@ -10,7 +10,6 @@ License:	LGPL
 Group:		Development/Other
 URL:		http://code.google.com/p/bitstring
 Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz	
-Patch:      %{name}-1.9.7-install-flags.patch
 BuildRequires:	ocaml
 BuildRequires:	camlp4
 BuildRequires:  findlib
@@ -31,7 +30,6 @@ using %{name}.
 
 %prep
 %setup -q
-%patch -p 1
 
 %build
 %configure2_5x
@@ -39,9 +37,11 @@ make
 
 %install
 rm -rf %{buildroot}
-#%makeinstall_std
 install -d -m 755 %{buildroot}/%{ocaml_sitelib}
+install -d -m 755 %{buildroot}/%{ocaml_sitelib}/stublibs
+export OCAMLFIND_DESTDIR=%{buildroot}/%{ocaml_sitelib}
 make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}"
+rm -f %{buildroot}/%{ocaml_sitelib}/stublibs/*.so.owner
 
 %clean
 rm -rf %{buildroot}
@@ -55,5 +55,5 @@ rm -rf %{buildroot}
 %files devel
 %defattr(-,root,root)
 %{ocaml_sitelib}/bitstring/*
+%{ocaml_sitelib}/stublibs/*.so
 %exclude %{ocaml_sitelib}/bitstring/*.cmi
-
