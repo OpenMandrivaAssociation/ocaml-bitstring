@@ -1,5 +1,5 @@
 %define name	ocaml-bitstring
-%define version	1.9.8
+%define version	2.0.0
 %define release	%mkrel 1
 
 Name:		%{name}
