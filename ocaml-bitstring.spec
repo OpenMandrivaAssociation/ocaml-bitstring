@@ -1,6 +1,6 @@
 %define name	ocaml-bitstring
 %define version	2.0.0
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 Name:		%{name}
 Version:	%{version}
@@ -10,6 +10,7 @@ License:	LGPL
 Group:		Development/Other
 URL:		http://code.google.com/p/bitstring
 Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz	
+Patch:      ocaml-bitstring-2.0.0-dynlink.patch
 BuildRequires:	ocaml
 BuildRequires:	camlp4
 BuildRequires:  findlib
@@ -30,6 +31,7 @@ using %{name}.
 
 %prep
 %setup -q
+%patch -p 1
 
 %build
 %configure2_5x
@@ -41,7 +43,6 @@ install -d -m 755 %{buildroot}/%{ocaml_sitelib}
 install -d -m 755 %{buildroot}/%{ocaml_sitelib}/stublibs
 export OCAMLFIND_DESTDIR=%{buildroot}/%{ocaml_sitelib}
 make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}"
-rm -f %{buildroot}/%{ocaml_sitelib}/stublibs/*.so.owner
 
 %clean
 rm -rf %{buildroot}
@@ -51,9 +52,15 @@ rm -rf %{buildroot}
 %doc README TODO COPYING COPYING.LIB CHANGES
 %dir %{ocaml_sitelib}/bitstring
 %{ocaml_sitelib}/bitstring/*.cmi
+%{ocaml_sitelib}/bitstring/*.cma
+%{ocaml_sitelib}/bitstring/META
+%{ocaml_sitelib}/stublibs/*.so
+%{ocaml_sitelib}/stublibs/*.so.owner
 
 %files devel
 %defattr(-,root,root)
-%{ocaml_sitelib}/bitstring/*
-%{ocaml_sitelib}/stublibs/*.so
-%exclude %{ocaml_sitelib}/bitstring/*.cmi
+%{ocaml_sitelib}/bitstring/*.a
+%{ocaml_sitelib}/bitstring/*.cmx
+%{ocaml_sitelib}/bitstring/*.cmxa
+%{ocaml_sitelib}/bitstring/*.cmo
+%{ocaml_sitelib}/bitstring/*.mli
