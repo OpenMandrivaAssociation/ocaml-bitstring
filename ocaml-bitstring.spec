@@ -36,13 +36,15 @@ using %{name}.
 %build
 %configure2_5x
 make 
+make doc
 
 %install
 rm -rf %{buildroot}
-install -d -m 755 %{buildroot}/%{ocaml_sitelib}
-install -d -m 755 %{buildroot}/%{ocaml_sitelib}/stublibs
-export OCAMLFIND_DESTDIR=%{buildroot}/%{ocaml_sitelib}
-make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}"
+install -d -m 755 %{buildroot}/%{_libdir}/ocaml/stublibs
+make install OCAMLFIND_DESTDIR=%{buildroot}/%{_libdir}/ocaml
+
+install -d -m 755 %{buildroot}/%{_bindir}
+install -m 755 bitstring-objinfo %{buildroot}%{_bindir}
 
 %clean
 rm -rf %{buildroot}
@@ -50,17 +52,18 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README TODO COPYING COPYING.LIB CHANGES
-%dir %{ocaml_sitelib}/bitstring
-%{ocaml_sitelib}/bitstring/*.cmi
-%{ocaml_sitelib}/bitstring/*.cma
-%{ocaml_sitelib}/bitstring/META
-%{ocaml_sitelib}/stublibs/*.so
-%{ocaml_sitelib}/stublibs/*.so.owner
+%dir %{_libdir}/ocaml/bitstring
+%{_libdir}/ocaml/bitstring/*.cmi
+%{_libdir}/ocaml/bitstring/*.cma
+%{_libdir}/ocaml/bitstring/META
+%{_libdir}/ocaml/stublibs/*.so
+%{_libdir}/ocaml/stublibs/*.so.owner
 
 %files devel
 %defattr(-,root,root)
-%{ocaml_sitelib}/bitstring/*.a
-%{ocaml_sitelib}/bitstring/*.cmx
-%{ocaml_sitelib}/bitstring/*.cmxa
-%{ocaml_sitelib}/bitstring/*.cmo
-%{ocaml_sitelib}/bitstring/*.mli
+%{_bindir}/bitstring-objinfo
+%{_libdir}/ocaml/bitstring/*.a
+%{_libdir}/ocaml/bitstring/*.cmx
+%{_libdir}/ocaml/bitstring/*.cmxa
+%{_libdir}/ocaml/bitstring/*.cmo
+%{_libdir}/ocaml/bitstring/*.mli
