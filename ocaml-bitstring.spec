@@ -13,7 +13,7 @@ Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch:      ocaml-bitstring-2.0.0-dynlink.patch
 BuildRequires:	ocaml
 BuildRequires:	camlp4
-BuildRequires:  findlib
+BuildRequires:  ocaml-findlib
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
