@@ -6,7 +6,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Summary:	Bitstrings and bitstring matching for OCaml
-License:	LGPL
+License:	LGPLv2+ with exceptions and GPLv2+
 Group:		Development/Other
 URL:		http://code.google.com/p/bitstring
 Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz	
