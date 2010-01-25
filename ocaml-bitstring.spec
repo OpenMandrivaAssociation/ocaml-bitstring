@@ -1,6 +1,6 @@
 %define name	ocaml-bitstring
-%define version	2.0.0
-%define release	%mkrel 6
+%define version	2.0.2
+%define release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -10,7 +10,6 @@ License:	LGPLv2+ with exceptions and GPLv2+
 Group:		Development/Other
 URL:		http://code.google.com/p/bitstring
 Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz	
-Patch:      ocaml-bitstring-2.0.0-dynlink.patch
 BuildRequires:	ocaml
 BuildRequires:	camlp4
 BuildRequires:  ocaml-findlib
@@ -31,7 +30,6 @@ using %{name}.
 
 %prep
 %setup -q
-%patch -p 1
 
 %build
 %configure2_5x
