@@ -65,3 +65,47 @@ rm -rf %{buildroot}
 %{_libdir}/ocaml/bitstring/*.cmxa
 %{_libdir}/ocaml/bitstring/*.cmo
 %{_libdir}/ocaml/bitstring/*.mli
+
+
+%changelog
+* Mon Jan 25 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.2-1mdv2010.1
++ Revision: 496354
+- new version
+
+  + Florent Monnier <blue_prawn@mandriva.org>
+    - rebuild
+    - fixed license
+
+* Sat Jun 27 2009 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.0-5mdv2010.0
++ Revision: 389903
+- rebuild
+
+* Mon Dec 29 2008 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.0-4mdv2009.1
++ Revision: 321224
+- install at standard ocaml library root
+- install binary
+
+* Mon Dec 22 2008 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.0-3mdv2009.1
++ Revision: 317604
+- Fixes from Florent Monnier fmonnier@linux-nantes.org>:
+- move non-devel files in main package
+- fix build with latest ocaml
+
+  + Pixel <pixel@mandriva.com>
+    - rebuild
+
+* Mon Nov 03 2008 Guillaume Rousse <guillomovitch@mandriva.org> 2.0.0-1mdv2009.1
++ Revision: 299452
+- update to new version 2.0.0
+
+* Tue Sep 02 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.9.8-1mdv2009.0
++ Revision: 279045
+- new version
+
+* Thu Aug 14 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.9.7-1mdv2009.0
++ Revision: 271756
+- import ocaml-bitstring
+
+
+* Thu Aug 14 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.9.7-1mdv2009.0
+- first mdv release 
