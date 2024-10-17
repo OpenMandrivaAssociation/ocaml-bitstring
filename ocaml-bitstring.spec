@@ -8,7 +8,7 @@ Release:	%{release}
 Summary:	Bitstrings and bitstring matching for OCaml
 License:	LGPLv2+ with exceptions and GPLv2+
 Group:		Development/Other
-URL:		http://code.google.com/p/bitstring
+URL:		https://code.google.com/p/bitstring
 Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz	
 BuildRequires:	ocaml
 BuildRequires:	camlp4
