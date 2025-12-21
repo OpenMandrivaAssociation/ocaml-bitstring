@@ -10,6 +10,11 @@ License:	LGPLv2+ with exceptions and GPLv2+
 Group:		Development/Other
 URL:		https://code.google.com/p/bitstring
 Source:	    http://bitstring.googlecode.com/files/%{name}-%{version}.tar.gz	
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	ocaml
 BuildRequires:	camlp4
 BuildRequires:  ocaml-findlib
